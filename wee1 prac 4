@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class MaxSubarraySum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int[] nums = new int[N];
+        for (int i = 0; i < N; i++) nums[i] = sc.nextInt();
+
+        int maxSoFar = nums[0];
+        int currentMax = nums[0];
+
+        for (int i = 1; i < N; i++) {
+            currentMax = Math.max(nums[i], currentMax + nums[i]);
+            maxSoFar = Math.max(maxSoFar, currentMax);
+        }
+
+        System.out.println("Maximum Subarray Sum = " + maxSoFar);
+        sc.close();
+    }
+}
